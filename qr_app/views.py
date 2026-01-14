@@ -56,10 +56,6 @@ def edit_card(request, card_id):
 
 def view_card(request, id):
     card = get_object_or_404(Card, id=id)
-
-    # 🔐 SECURITY CHECK
-    if card.user != request.user:
-        return redirect("home")
-
     return render(request, "qr_app/card.html", {"card": card})
+
 
