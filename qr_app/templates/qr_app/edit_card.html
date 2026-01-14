@@ -1,0 +1,13 @@
+<h2>Edit Your Card</h2>
+
+<form method="post">
+    {% csrf_token %}
+
+    <input type="text" name="name" value="{{ card.name }}" placeholder="Name"><br><br>
+    <input type="text" name="phone" value="{{ card.phone }}" placeholder="Phone"><br><br>
+    <input type="email" name="email" value="{{ card.email }}" placeholder="Email"><br><br>
+    <input type="text" name="company" value="{{ card.company }}" placeholder="Company"><br><br>
+    <textarea name="address" placeholder="Address">{{ card.address }}</textarea><br><br>
+
+    <button type="submit">Update</button>
+</form>

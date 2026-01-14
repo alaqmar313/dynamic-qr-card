@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic QR Visiting Card</title>
+</head>
+<body>
+
+<h2>Create Dynamic QR Visiting Card</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <input name="name" placeholder="Name" required><br>
+    <input name="phone" placeholder="Phone" required><br>
+    <input name="email" placeholder="Email" required><br>
+    <input name="company" placeholder="Company"><br>
+    <textarea name="address" placeholder="Address"></textarea><br>
+    <button type="submit">Generate QR</button>
+</form>
+
+{% if qr_code %}
+    <h3>Your Dynamic QR</h3>
+    <img src="data:image/png;base64,{{ qr_code }}">
+    <p>Scan count starts when people scan this QR</p>
+{% endif %}
+
+</body>
+</html>

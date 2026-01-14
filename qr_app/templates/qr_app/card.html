@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ card.name }}</title>
+</head>
+<body>
+
+<h2>{{ card.name }}</h2>
+<p>📞 {{ card.phone }}</p>
+<p>📧 {{ card.email }}</p>
+<p>🏢 {{ card.company }}</p>
+<p>📍 {{ card.address }}</p>
+
+
+{% if request.user == card.user %}
+    <a href="{% url 'edit_card' card.id %}">✏️ Edit Card</a>
+{% endif %}
+
+</body>
+</html>
